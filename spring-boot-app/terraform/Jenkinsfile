@@ -1,0 +1,64 @@
+pipeline {
+    agent any 
+    environment {
+        GOOGLE_APPLICATION_CREDENTIALS = credentials('gcp-credentials') // GCP JSON key stored as a secret
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                sh 'echo "Checking out repository..."'
+                git branch: 'main', url: 'https://github.com/Varaprasad0389/devops_e2e_workflow.git'
+            }
+        }
+
+        stage('Authenticate with GCP') {
+            steps {
+                withCredentials([file(credentialsId: 'gcp-credentials', variable: 'GCP_SA_KEY')]) {
+                    sh '''
+                        echo "Authenticating with Google Cloud..."
+                        export GOOGLE_APPLICATION_CREDENTIALS=$GCP_SA_KEY
+                        gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
+                        gcloud auth list
+                    '''
+                }
+            }
+        }
+
+        stage('Terraform Init') {
+            steps {
+                withCredentials([file(credentialsId: 'gcp-credentials', variable: 'GCP_SA_KEY')]) {
+                    sh '''
+                        export GOOGLE_APPLICATION_CREDENTIALS=$GCP_SA_KEY
+                        cd spring-boot-app/terraform
+                        terraform init
+                    '''
+                }
+            }
+        }
+
+        stage('Terraform Plan') {
+            steps {
+                withCredentials([file(credentialsId: 'gcp-credentials', variable: 'GCP_SA_KEY')]) {
+                    sh '''
+                        export GOOGLE_APPLICATION_CREDENTIALS=$GCP_SA_KEY
+                        cd spring-boot-app/terraform
+                        terraform plan
+                    '''
+                }
+            }
+        }
+
+        stage('Terraform Apply') {
+            steps {
+                withCredentials([file(credentialsId: 'gcp-credentials', variable: 'GCP_SA_KEY')]) {
+                    sh '''
+                        export GOOGLE_APPLICATION_CREDENTIALS=$GCP_SA_KEY
+                        cd spring-boot-app/terraform
+                        terraform apply -auto-approve
+                    '''
+                }
+            }
+        }
+    }
+}
