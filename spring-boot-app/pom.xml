@@ -46,6 +46,7 @@
 
     <build>
         <finalName>spring-boot-web</finalName>
+        <packaging>jar</packaging>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -57,9 +58,6 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <mainClass>com.abhishek.StartApplication</mainClass>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
