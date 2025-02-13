@@ -1,13 +1,12 @@
-# You can change this base image to anything else
-# But make sure to use the correct version of Java
+# Use AdoptOpenJDK base image with Java 11
 FROM adoptopenjdk/openjdk11:alpine-jre
 
-# Simply the artifact path
-ARG artifact=target/spring-boot-web.jar
-
+# Set the working directory
 WORKDIR /opt/app
 
-COPY ${artifact} app.jar
+# Copy the JAR file built by Maven
+ARG JAR_FILE=target/spring-boot-demo-1.0.jar
+COPY ${JAR_FILE} app.jar
 
-# This should not be changed
-ENTRYPOINT ["java","-jar","app.jar"]
+# Run the application
+ENTRYPOINT ["java", "-jar", "app.jar"]
