@@ -12,7 +12,7 @@ COPY ${JAR_FILE} app.jar
 # Place this Dockerfile in the root of your project
 
 # Expose the application on port 80
-EXPOSE 80
+EXPOSE 8080
 
 # Run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
