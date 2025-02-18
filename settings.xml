@@ -1,12 +1,10 @@
 <settings>
-    ...
-    <profiles>
-        <profile>
-            <id>my-profile</id>  <activation>
-                <activeByDefault>true</activeByDefault> </activation>
-            <properties>
-                <jdk>17</jdk>  </properties>
-        </profile>
-    </profiles>
-    ...
+  <profiles>
+    <profile>
+      <id>jdk-17</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <jdk>/usr/lib/jvm/java-17-openjdk-amd64</jdk>  </profile>
+  </profiles>
 </settings>
