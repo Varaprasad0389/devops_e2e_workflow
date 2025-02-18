@@ -19,11 +19,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!-- Ensure maven compiler plugin uses the correct version -->
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <java.version>17</java.version>
-        <sonar.organization>vkota365</sonar.organization>
+        <java.version>17</java.version>  <sonar.organization>vkota365</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.projectKey>vkota365_devops</sonar.projectKey>
     </properties>
@@ -62,15 +60,11 @@
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>3.11.0.3922</version>
             </plugin>
-            <!-- Add the maven compiler plugin explicitly -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-            <configuration>
-                <source>1.8</source>
-                <target>1.8</target>
-            </configuration>
+                <version>3.11.0</version> <configuration>
+                    <source>17</source>  <target>17</target>  </configuration>
             </plugin>
         </plugins>
     </build>
