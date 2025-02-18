@@ -47,6 +47,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                  <configuration>
+                      <java.version>17</java.version>
+                  </configuration>
                 <executions>
                     <execution>
                         <goals>
