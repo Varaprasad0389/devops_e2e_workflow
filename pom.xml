@@ -19,12 +19,12 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <java.version>11</java.version>
-        <sonar.organization>vkota365</sonar.organization> <!-- Correct organization key -->
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <java.version>17</java.version>
+        <sonar.organization>vkota365</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.projectKey>vkota365_devops</sonar.projectKey> <!-- Added project key -->
+        <sonar.projectKey>vkota365_devops</sonar.projectKey>
     </properties>
 
     <dependencies>
@@ -59,7 +59,7 @@
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
-                <version>3.9.1.2184</version>
+                <version>3.11.0.3922</version>
             </plugin>
         </plugins>
     </build>
