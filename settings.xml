@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+<settings>
+    ...
     <profiles>
         <profile>
-            <id>java-17-profile</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
+            <id>my-profile</id>  <activation>
+                <activeByDefault>true</activeByDefault> </activation>
             <properties>
-                <java.home>/usr/lib/jvm/java-17-openjdk-amd64</java.home>
-            </properties>
+                <jdk>17</jdk>  </properties>
         </profile>
     </profiles>
+    ...
 </settings>
