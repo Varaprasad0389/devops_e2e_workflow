@@ -17,7 +17,7 @@ public class StartApplicationTest {
         String viewName = app.index(model);
 
         assertEquals("index", viewName);
-        verify(model).addAttribute("title", "I have successfuly built a sprint boot application using Maven");
-        verify(model).addAttribute("msg", "This application is deployed on to Kubernetes using Argo CD");
+        verify(model).addAttribute("title", "I have successfuly built a spring boot application using Maven");
+        verify(model).addAttribute("msg", "Welcome to the demo of ci and cd");
     }
 }
