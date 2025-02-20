@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: java-app
-        image: 19980617/e2ebuild:38
+        image: varaprasad365/harness-app:jar-app
         ports:
         - containerPort: 8080
